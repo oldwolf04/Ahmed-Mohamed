@@ -1,14 +1,14 @@
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
+       
         EmergencySystem system = new EmergencySystem();
-        Scanner sc = new Scanner(System.in);
+        
+     Scanner sc = new Scanner(System.in);
 
+//المينيو الرئيسى للنظام        
         while (true) {
             System.out.println("\n--- Emergency System ---");
             System.out.println("1 - Add Patient");
@@ -21,7 +21,8 @@ public class Main {
             System.out.println("0 - Exit");
             System.out.print("Choice: ");
 
-            int op;
+            
+        int op;
             try {
                 op = Integer.parseInt(sc.nextLine());
             } catch (Exception e) {
@@ -42,8 +43,11 @@ public class Main {
                     System.out.print("Priority (lower number is more critical): ");
                     int pri = Integer.parseInt(sc.nextLine());
                     system.addPatient(new EmergencySystem.Patient(id, name, age, cond, pri));
+                    
                 }
-                case 2 -> system.viewPatients();
+               case 2 -> system.viewPatients();
+
+                    
                 case 3 -> {
                     System.out.print("ID to update: ");
                     String id = sc.nextLine();
@@ -57,18 +61,28 @@ public class Main {
                     int pri = Integer.parseInt(sc.nextLine());
                     system.updatePatient(id, name, age, cond, pri);
                 }
-                case 4 -> {
+                    
+                 case 4 -> {
                     System.out.print("ID to delete: ");
                     String id = sc.nextLine();
                     system.deletePatient(id);
                 }
                 case 5 -> system.undoDelete();
+                    
                 case 6 -> system.processCriticalPatient();
+                    
                 case 7 -> system.viewPatientsByCondition();
+                    
                 case 0 -> {
                     System.out.println("System terminated.");
                     sc.close();
                     return;
+                }
+                    default -> System.out.println("Invalid choice.");
+                               }
+                         }
+                         }
+                         }
                 }
                 default -> System.out.println("Invalid choice.");
             }
